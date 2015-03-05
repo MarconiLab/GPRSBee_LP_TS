@@ -48,6 +48,102 @@ The code uses Stalker + GPRSBee
   To program Stalker unconnect pin0 and 1 or take gprsbee out. (sharing ports 0 and 1 from Stalker)
   
 
+## Correct post to ThingSpeak from serial monitor
++CSQ: 13,0
+
+OK
+>> AT+CREG?
+
++CREG: 0,2
+
+OK
+>> AT
+
+OK
+>> AT+CREG?
+
++CREG: 0,2
+
+OK
+>> AT
+
+OK
+>> AT+CREG?
+
++CREG: 0,2
+
+OK
+>> AT
+
+OK
+>> AT+CREG?
+
++CREG: 0,5
+
+OK
+>> AT+CGATT=1
+
+OK
+>> AT+SAPBR=3,1,"CONTYPE","GPRS"
+
+OK
+>> AT+SAPBR=3,1,"APN","internet.wind"
+
+OK
+>> AT+SAPBR=1,1
+
+OK
+>> AT+SAPBR=2,1
+
++SAPBR: 1,1,"10.196.63.161"
+
+OK
+>> AT+COPS=?
+
++COPS: (2,"Si.mobil","","29340"),,(0,1,4),(0,1,2)
+
+OK
+>> AT+COPS?
+
++COPS: 0,0,"Si.mobil"
+
+OK
+>> AT+HTTPINIT
+
+OK
+>> AT+HTTPPARA="CID",1
+
+OK
+>> AT+HTTPPARA="URL","http://184.106.153.149/update?key=O5XPJEN8C088NDLO&field1=25.75"
+
+OK
+>> >> AT+HTTPPARA="REDIR",1
+
+OK
+>> AT+HTTPACTION=0
+
+OK
+
++HTTPACTION:0,200,1
+>> AT+HTTPREAD
+
++HTTPREAD:1
+
+OK
+>> AT+HTTPTERM
+
+OK
+
++SAPBR 1: DEACT
+
+NORMAL POWER DOWN
+Received: 5
+
+Errors
++HTTPACTION:0,status,1
+status page 222
+http://www.simcom.ee/documents/gsm-gprs/sim900/SIM900_AT%20Command%20Manual_V1.09.pdf
+
 ##Libraries
 https://github.com/SodaqMoja/GPRSbee
 
