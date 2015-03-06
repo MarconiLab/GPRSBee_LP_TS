@@ -214,9 +214,8 @@ void loop ()
     delay(50); //This delay is required to allow print to complete
     #ifdef ENABLE_DIAG
       diagport.print("Sleeping ");
-      float slp=SLPNG/60;
-      diagport.print(slp);
-      diagport.print("m");
+      diagport.print(SLPNG/60.0);
+      diagport.println("m");
     #endif
     //Shut down all peripherals like ADC before sleep. Refer Atmega328 manual
     power_all_disable(); //This shuts down ADC, TWI, SPI, Timers and USART
